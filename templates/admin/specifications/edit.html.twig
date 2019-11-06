@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Editer un bien{% endblock %}
+{% block title %}Editer l'option{% endblock %}
 
 {% block body %}
 <!-- Pour modifer la vue du formulaire, se rendre sur le fichier twig.yaml -->
@@ -8,7 +8,7 @@
 <!-- puis modifier le twig en question -->
     <div class="container">
             <h2>Editer le bien</h2>
-        {{ include('admin/property/_form.html.twig', {button: 'Editer'}) }}
+        {{ include('admin/specifications/_form.html.twig', {button: 'Editer'}) }}
     </div>
 
 {% endblock %}

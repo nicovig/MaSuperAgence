@@ -3,9 +3,10 @@
 namespace App\Form;
 
 use App\Entity\PropertySearch;
+use App\Entity\Specifications;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -27,6 +28,13 @@ class PropertySearchType extends AbstractType
                         'attr' => [
                             'placeholder' => 'Prix maximum'
                         ]
+            ])
+            ->add('specifications', EntityType::class, [
+                'required' => false,
+                'label' => false,
+                'class' => Specifications::class,
+                'choice_label' => 'name',
+                'multiple' => true
             ]);
     }
 

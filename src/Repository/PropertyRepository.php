@@ -22,8 +22,6 @@ class PropertyRepository extends ServiceEntityRepository
         parent::__construct($registry, Property::class);
     }
 
-
-
      /**
       * @return Property[]
       */
@@ -52,6 +50,16 @@ class PropertyRepository extends ServiceEntityRepository
         if($propertySearch->getMinSurface()){
             $query = $query->andWhere('p.surface >= :minsurface')
                            ->setParameter('minsurface', $propertySearch->getMinSurface());
+        }
+
+        if($propertySearch->getSpecifications()->count() > 0){
+            $k = 0;
+            foreach ($propertySearch->getSpecifications() as $specifications){
+                $k++;
+                $query = $query
+                    ->andWhere(":specifications$k MEMBER OF p.specifications ")
+                    ->setParameter("specifications$k", $specifications);
+            }
         }
 
             return $query->getQuery();

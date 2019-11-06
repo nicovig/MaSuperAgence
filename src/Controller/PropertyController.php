@@ -45,7 +45,6 @@ class PropertyController extends AbstractController
         );
 
         return $this->render('property/index.html.twig', [
-            'current_menu' => 'properties',
             'properties' => $properties,
             'form' => $form->createView()
         ]);
@@ -64,7 +63,6 @@ class PropertyController extends AbstractController
             ], 301);
         }
         return $this->render('property/show.html.twig', [
-            'current_menu' => 'properties',
             'property' => $property
         ]);
     }
