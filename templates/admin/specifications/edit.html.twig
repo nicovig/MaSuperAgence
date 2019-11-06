@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer un bien{% endblock %}
+
+{% block body %}
+<!-- Pour modifer la vue du formulaire, se rendre sur le fichier twig.yaml -->
+<!-- Pour connaître les thèmes dispo, se rendre dans le dossier vendor\symfony\twig-bridge\Resources\views\Form -->
+<!-- puis modifier le twig en question -->
+    <div class="container">
+            <h2>Editer le bien</h2>
+        {{ include('admin/property/_form.html.twig', {button: 'Editer'}) }}
+    </div>
+
+{% endblock %}
+
